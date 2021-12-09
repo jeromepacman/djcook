@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = [os.environ.get('SECRET_KEY'), 'key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG: bool = False
 
 ALLOWED_HOSTS = []
 
@@ -121,16 +121,14 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = False
+USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_URL = 'media/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -141,4 +139,13 @@ AUTH_USER_MODEL = 'accounts.Profile'
 
 TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
 
-MIDDLEWARE.append('core.middleware.UserBasedExceptionMiddleware')
+if not DEBUG:
+    ALLOWED_HOSTS = ['*']
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_PRELOAD = True
+
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+    SESSION_COOKIE_AGE = 3600
+
+    MIDDLEWARE.append('core.middleware.UserBasedExceptionMiddleware')

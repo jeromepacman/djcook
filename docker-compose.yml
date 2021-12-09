@@ -26,7 +26,7 @@ services:
             - "8000:8000"
         restart: always
     bot:
-        container_name: {{cookiecutter.project_slug}}_bot
+        container_name: djcook_bot
         image: jeromepacman:0.1
         environment:
             - SECRET_KEY=${SECRET_KEY}
@@ -43,7 +43,7 @@ services:
         restart: always
     db:
         image: postgres:13
-        container_name: {{cookiecutter.project_slug}}_db
+        container_name: djcook_db
         environment:
             - POSTGRES_DB=${DB_NAME}
             - POSTGRES_USER=${DB_USER}
