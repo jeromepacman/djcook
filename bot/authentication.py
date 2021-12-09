@@ -13,15 +13,16 @@ def authenticate(chat):
 
     # anonymous
     if chat.username is not None:
-        if chat.username  == 'GroupAnonymousBot':
+        if chat.username == 'GroupAnonymousBot':
             return None, True
 
     # not anonymous
     user, _ = models.BotUser.objects.get_or_create(chat_id=chat['id'])
 
     user.chat_id = chat['id']
-
+    user.user_id = chat.user_id
     # get username
+
     try:
         user.username = chat.username
     except Exception as e:

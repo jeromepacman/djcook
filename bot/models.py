@@ -10,12 +10,14 @@ class BotUser(TimeStampedModel):
 
     # Basic data
     chat_id = models.CharField(max_length=255)
-
+    user_id = models.CharField(max_length=255, null=True, blank=True)
     username = models.CharField(max_length=255, null=True, blank=True)
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)
+    language_code = models.CharField(max_length=8, null=True, blank=True)
 
     # Permissions
+
     is_admin = models.BooleanField(default=False)
 
     # State
@@ -24,17 +26,19 @@ class BotUser(TimeStampedModel):
 
     language = models.CharField(max_length=2, choices=(
         # define your bot languages here
-        ('ES', 'es'),
+        ('FR', 'fr'),
         ('EN', 'en'),
     ), default=None, null=True, blank=True)
 
     def __str__(self):
+        user_id = self.user_id
         name = self.first_name
         if self.last_name is not None:
             name += f' {self.last_name}'
         if self.username is not None:
             name += f' (@{self.username})'
-        return name
+
+        return user_id, name
 
     def report_last_action(self):
         self.last_action_datetime = now()
