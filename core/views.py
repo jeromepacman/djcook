@@ -1,7 +1,5 @@
-from django.views import View
 
 from django.http import JsonResponse
-
 import logging
 
 logger = logging.getLogger(__name__)
