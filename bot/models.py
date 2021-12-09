@@ -10,7 +10,6 @@ class BotUser(TimeStampedModel):
 
     # Basic data
     chat_id = models.CharField(max_length=255)
-    user_id = models.CharField(max_length=255, null=True, blank=True)
     username = models.CharField(max_length=255, null=True, blank=True)
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)
@@ -21,7 +20,7 @@ class BotUser(TimeStampedModel):
     is_admin = models.BooleanField(default=False)
 
     # State
-    has_blocked_bot = models.BooleanField(default=False)
+    is_blocked_bot = models.BooleanField(default=False)
     last_action_datetime = models.DateTimeField(null=True, blank=True)
 
     language = models.CharField(max_length=2, choices=(
@@ -31,14 +30,13 @@ class BotUser(TimeStampedModel):
     ), default=None, null=True, blank=True)
 
     def __str__(self):
-        user_id = self.user_id
         name = self.first_name
         if self.last_name is not None:
             name += f' {self.last_name}'
         if self.username is not None:
             name += f' (@{self.username})'
 
-        return user_id, name
+        return name
 
     def report_last_action(self):
         self.last_action_datetime = now()

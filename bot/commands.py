@@ -12,13 +12,22 @@ from telegram.ext import ConversationHandler
 
 # Example: /start
 def start(update, context):
+
     update.message.reply_text(
         text='Hello!'
     )
 
 
+def help(update, context):
+
+    update.message.reply_text(
+        text='ouchhh.. hard!'
+    )
+
+
 # Example: /cancel
 def cancel(update, context):
+
     update.message.reply_text(
         text='The action is cancelled.'
     )

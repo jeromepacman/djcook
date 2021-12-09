@@ -14,12 +14,12 @@ from . import commands, callbacks, conversations, constants, messages, models
 
 
 class Bot(object):
-
     """
     Add your commands here, placing them on `commands.py`.
     """
     command_handlers = {
         'start': commands.start,
+        'help': commands.help,
     }
 
     """
@@ -55,7 +55,8 @@ class Bot(object):
 
     def __init__(self):
 
-        token = settings.TELEGRAM_TOKEN
+        token = "2130008463:AAHqvnkzhHpySdjL7LY9W9xEYWWfa1sVNvo"
+        # token = settings.TELEGRAM_TOKEN
 
         self.updater = Updater(token=token, use_context=True, workers=200, persistence=DjangoPersistence())
         self.bot = telegram.Bot(token=token)

@@ -5,7 +5,6 @@ from . import models
 
 @admin.register(models.BotUser)
 class BotUserAdmin(admin.ModelAdmin):
-    list_display = ('chat_id', 'username', 'first_name', 'last_name', 'user_id')
-    list_filter = ('has_blocked_bot', )
-    search_fields = ('username', )
+    list_display = ('chat_id', 'username', 'first_name', 'last_name')
+
 
