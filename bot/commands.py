@@ -1,21 +1,26 @@
-from telegram import InlineKeyboardMarkup
-from telegram.ext import run_async
+"""
+Command handlers
+https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.commandhandler.html?highlight=CommandHandler
+"""
 
-from . import renderers
-from .authentication import authenticate
-
-# Write your callback query handlers here
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+from telegram.ext import ConversationHandler
 
 
-@run_async
-def example_callback_query_handler(update, context):
-    query = update.callback_query
-    query.answer()
+# Write your command handlers here
 
-    user = authenticate(update.effective_user)
 
-    text, keyboard = renderers.example_markup(user)
-    query.edit_message_text(
-        text=text,
-        reply_markup=InlineKeyboardMarkup(keyboard)
+# Example: /start
+def start(update, context):
+    update.message.reply_text(
+        text='Hello!'
     )
+
+
+# Example: /cancel
+def cancel(update, context):
+    update.message.reply_text(
+        text='The action is cancelled.'
+    )
+
+    return ConversationHandler.END
