@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = [os.environ.get('SECRET_KEY'), 'efdfezfzf']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'debug_toolbar',
+    'python_telegram_bot_django_persistence',
+
     'core.apps.CoreConfig',
     'accounts.apps.AccountsConfig',
     'bot.apps.BotConfig',
+
 ]
 
 MIDDLEWARE = [
