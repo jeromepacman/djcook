@@ -40,5 +40,6 @@ def quote(update, context):
 
 
 def myview(update, context):
-
+    user = authenticate(update.effective_message)
+    update.message.reply_text(user)
 
