@@ -9,7 +9,7 @@ class BotUser(TimeStampedModel):
     """
 
     # Basic data
-    chat_id = models.CharField(max_length=64)
+    chat_id = models.CharField(max_length=64, null=True)
     username = models.CharField(max_length=64, null=True, blank=True)
     first_name = models.CharField(max_length=64, null=True, blank=True)
     last_name = models.CharField(max_length=64, null=True, blank=True)

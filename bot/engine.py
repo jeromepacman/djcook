@@ -13,7 +13,6 @@ from django.conf import settings
 from . import commands, callbacks, conversations, constants, messages, models
 
 
-
 class Bot(object):
     """
     Add your commands here, placing them on `commands.py`.
@@ -21,7 +20,8 @@ class Bot(object):
     command_handlers = {
         'start': commands.start,
         'help': commands.help,
-
+        'quote': commands.quote,
+        'myview': commands.myview,
     }
 
     """

@@ -5,12 +5,12 @@ I advice you to follow this structure.
 
 from telegram import InlineKeyboardButton
 
+
 # Write your renderers here
 
 
 # Example:
 def example_markup(user):
-
     text = 'Example text'
 
     keyboard = [

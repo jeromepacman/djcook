@@ -2,9 +2,13 @@
 Command handlers
 https://python-telegram-bot.readthedocs.io/en/stable/telegram.ext.commandhandler.html?highlight=CommandHandler
 """
+import random
 
-from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton, ParseMode
 from telegram.ext import ConversationHandler
+
+from .quotes import QUOTES_STRINGS
+from .authentication import authenticate
 
 
 # Write your command handlers here
@@ -12,7 +16,7 @@ from telegram.ext import ConversationHandler
 # Example: /start
 def start(update, context):
     update.message.reply_text(
-        text='Hello!'
+        text=" 'What if' ?"
     )
 
 
@@ -27,5 +31,14 @@ def cancel(update, context):
     update.message.reply_text(
         text='The action is cancelled.'
     )
-
     return ConversationHandler.END
+
+
+def quote(update, context):
+    text = random.choice(QUOTES_STRINGS)
+    update.message.reply_text(text)
+
+
+def myview(update, context):
+
+
