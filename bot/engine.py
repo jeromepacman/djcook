@@ -57,8 +57,7 @@ class Bot(object):
 
     def __init__(self):
 
-        token = "2130008463:AAHqvnkzhHpySdjL7LY9W9xEYWWfa1sVNvo"
-        # token = settings.TELEGRAM_TOKEN
+        token = settings.TELEGRAM_TOKEN
 
         self.updater = Updater(token=token, use_context=True, workers=200, persistence=DjangoPersistence())
         self.bot = telegram.Bot(token=token)

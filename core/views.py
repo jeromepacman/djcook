@@ -1,7 +1,7 @@
-from django.http import Http404
+from django.http import HttpResponse
 
 
 def index(request):
-    return Http404()
+    return HttpResponse(status=201)
 
 
