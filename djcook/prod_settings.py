@@ -14,3 +14,4 @@ MIDDLEWARE.append('core.middleware.UserBasedExceptionMiddleware')
 ADMIN_SITE_HEADER = "Online"
 
 WEBHOOK = False
+
