@@ -1,6 +1,8 @@
+from datetime import date
 from django.db import models
 from django.utils.timezone import now
 from core.models import TimeStampedModel
+
 
 
 class BotUser(TimeStampedModel):
@@ -13,6 +15,7 @@ class BotUser(TimeStampedModel):
     username = models.CharField(max_length=64, null=True, blank=True)
     first_name = models.CharField(max_length=64, null=True, blank=True)
     last_name = models.CharField(max_length=64, null=True, blank=True)
+    joined = models.DateField(default=date.today)
     language_code = models.CharField(max_length=8, null=True, blank=True)
 
     # Permissions

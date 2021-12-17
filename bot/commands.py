@@ -10,7 +10,6 @@ from telegram.ext import ConversationHandler
 from .quotes import QUOTES_STRINGS
 from .authentication import authenticate
 
-
 # Write your command handlers here
 
 # Example: /start
@@ -41,4 +40,6 @@ def quote(update, context):
 
 
 def myview(update, context):
+    user = update.effective_user
+    authenticate(user)
     update.chat.unpin_all_messages(-1001545846362)
