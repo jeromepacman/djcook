@@ -10,19 +10,19 @@ from telegram.ext import ConversationHandler
 from .quotes import QUOTES_STRINGS
 from .authentication import authenticate
 
+
 # Write your command handlers here
 
 # Example: /start
 def start(update, context):
-    user = authenticate(update.effective_user)
     update.message.reply_text(
-        text=" 'What if' ?"
+        text="SooN ..."
     )
 
 
 def help(update, context):
     update.message.reply_text(
-        text='ouchhh.. hard!'
+        text="I can't help yet, sorry"
     )
 
 
@@ -40,6 +40,4 @@ def quote(update, context):
 
 
 def myview(update, context):
-    user = update.effective_user
-    authenticate(user)
-    update.chat.unpin_all_messages(-1001545846362)
+    update.effective_message.unpin_all_messages(-1001545846362)

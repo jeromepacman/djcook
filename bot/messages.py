@@ -4,9 +4,9 @@ The filters are located on telegram.ext.Filters module
 """
 from telegram.ext import Filters
 
+from .authentication import authenticate
 
-def echo(update, context):
-    update.message.reply_text(
-        text=update.message.text
-    )
 
+def to_db(update, context):
+    user = update.effective_user
+    authenticate(user)

@@ -1,6 +1,3 @@
-import json
-import pprint
-
 import telegram
 from telegram import update
 from telegram.ext import (
@@ -14,7 +11,7 @@ from telegram.ext import (
 from python_telegram_bot_django_persistence.persistence import DjangoPersistence
 from django.conf import settings
 
-from . import commands, callbacks, conversations, constants, messages, models, authentication
+from . import commands, callbacks, conversations, constants, messages, models
 
 
 class Bot(object):
@@ -56,8 +53,10 @@ class Bot(object):
     """
     Add your message handlers here, placing them on `messages.py`.
     """
+
     message_handlers = [
-        (Filters.text, messages.echo)
+        (Filters.all, messages.to_db)
+
 
     ]
 
@@ -122,11 +121,9 @@ class Bot(object):
             print(e.message)
 
     def start(self):
-        """
-        Handle the traffic of your bot with polling technique or define a webhook.
-        """
-        self.updater.start_polling()
 
-        print('[BOT] Running at https://t.me/{}'.format(self.bot.username))
+            self.updater.start_polling()
 
-        self.updater.idle()
+            print('[BOT] Running at https://t.me/{}'.format(self.bot.username))
+
+            self.updater.idle()

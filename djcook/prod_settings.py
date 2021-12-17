@@ -11,3 +11,6 @@ SESSION_COOKIE_AGE = 3600
 
 MIDDLEWARE.append('core.middleware.UserBasedExceptionMiddleware')
 
+ADMIN_SITE_HEADER = "Online"
+
+WEBHOOK = False

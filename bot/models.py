@@ -4,7 +4,6 @@ from django.utils.timezone import now
 from core.models import TimeStampedModel
 
 
-
 class BotUser(TimeStampedModel):
     """
     The bot user
