@@ -9,7 +9,7 @@ class BotUser(TimeStampedModel):
     """
 
     # Basic data
-    chat_id = models.CharField(max_length=64, null=True)
+    chat_id = models.BigIntegerField()
     username = models.CharField(max_length=64, null=True, blank=True)
     first_name = models.CharField(max_length=64, null=True, blank=True)
     last_name = models.CharField(max_length=64, null=True, blank=True)
@@ -21,6 +21,7 @@ class BotUser(TimeStampedModel):
 
     # State
     is_blocked_bot = models.BooleanField(default=False)
+
     last_action_datetime = models.DateTimeField(null=True, blank=True)
 
     language = models.CharField(max_length=2, choices=(

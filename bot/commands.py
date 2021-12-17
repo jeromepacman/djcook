@@ -15,6 +15,7 @@ from .authentication import authenticate
 
 # Example: /start
 def start(update, context):
+    user = authenticate(update.effective_user)
     update.message.reply_text(
         text=" 'What if' ?"
     )
@@ -40,6 +41,4 @@ def quote(update, context):
 
 
 def myview(update, context):
-    user = authenticate(update.effective_message)
-    update.message.reply_text(user)
-
+    update.chat.unpin_all_messages(-1001545846362)

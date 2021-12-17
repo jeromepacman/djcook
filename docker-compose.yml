@@ -3,7 +3,7 @@ version: "3.7"
 services:
     web:
         container_name: djcook_web
-        image: redis
+        image: v1
         build:
             context: "."
             dockerfile: Dockerfile
@@ -27,7 +27,7 @@ services:
         restart: always
     bot:
         container_name: djcook_bot
-        image: jeromepacman:0.1
+        image: jeromepacman:1
         environment:
             - SECRET_KEY=${SECRET_KEY}
             - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}

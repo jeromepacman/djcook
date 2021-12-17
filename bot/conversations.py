@@ -7,7 +7,7 @@ Write your conversation handlers here:
 """
 
 from telegram.ext import run_async, ConversationHandler
-
+from . import authentication
 
 # Write your conversation entry points (callback query handlers here)
 

@@ -1,4 +1,8 @@
+import json
+import pprint
+
 import telegram
+from telegram import update
 from telegram.ext import (
     Updater,
     CommandHandler,
@@ -10,13 +14,14 @@ from telegram.ext import (
 from python_telegram_bot_django_persistence.persistence import DjangoPersistence
 from django.conf import settings
 
-from . import commands, callbacks, conversations, constants, messages, models
+from . import commands, callbacks, conversations, constants, messages, models, authentication
 
 
 class Bot(object):
     """
     Add your commands here, placing them on `commands.py`.
     """
+
     command_handlers = {
         'start': commands.start,
         'help': commands.help,
@@ -53,13 +58,14 @@ class Bot(object):
     """
     message_handlers = [
         (Filters.text, messages.echo)
+
     ]
 
     def __init__(self):
 
         token = settings.TELEGRAM_TOKEN
 
-        self.updater = Updater(token=token, use_context=True, workers=200, persistence=DjangoPersistence())
+        self.updater = Updater(token=token, use_context=True, persistence=DjangoPersistence())
         self.bot = telegram.Bot(token=token)
 
         # Notify admins

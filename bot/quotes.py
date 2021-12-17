@@ -14,7 +14,7 @@ QUOTES_STRINGS = (
     "🔈 Call your mother instead of calling tops! \n©️Zhu",
     "🔈 You can run, but you can't hide...",
     "🔈 If you wait until everyone understands it, you won't be able to afford it.\n©️M.Saylor",
-    "🔈 Buy the dips, sell the rips \n©️SalsaTekila",
+    "🔈 Buy the dips, sell the rips !)",
     "🔈 You just don't DCA enough, do you?",
     "🔈 Lost coins only make everyone else’s coins worth slightly more. Think of it as a donation to everyone. \n©️ "
     "Satoshi Nakamoto",
@@ -46,7 +46,7 @@ QUOTES_STRINGS = (
     "🔈 Ah, what a waste. I liked that one.",
     "🔈 A misdraw generally results in a multiplied inverse effect \n©️Cryptocred",
     "🔈 Leveraged markets may at times overlap by up to 15% of Wave 2 by price. \n©️Eliott Waves Theory",
-    "🔈 What are you running after? .. a dead cat !",
+    "🔈 What are you running after? .. a dead cat",
     "🔈 Think probabilities, nothing is absolute, no one knows for sure \n©️Chris Burniske",
     "🔈 95% of these trendy alt L1s will fail to maintain ecosystems & anything that will struggle with funding will "
     "disappear \n©️Cobie.",
