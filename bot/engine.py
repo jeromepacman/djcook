@@ -1,5 +1,4 @@
 import telegram
-from telegram import update
 from telegram.ext import (
     Updater,
     CommandHandler,
