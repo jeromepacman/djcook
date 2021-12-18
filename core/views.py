@@ -19,8 +19,6 @@ class WebhookView(View):
         t_body = request.body
         t_data = json.loads(t_body.decode("utf-8"))
 
-
-
         u = getUpdate(t_data)
         text = u["text"]
         id = u["id"]
@@ -53,5 +51,3 @@ class WebhookView(View):
         requests.post(
             f"{settings.TELEGRAM_URL}{settings.TOKEN}/sendMessage", data=data
         )
-
-
