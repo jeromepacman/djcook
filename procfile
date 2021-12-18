@@ -1,2 +1,4 @@
-release: python manage.py migrate --noinput
-web: python3 runbot.py
+release: python runbot.py
+web: gunicorn prod.settings --log-file -
+
+
