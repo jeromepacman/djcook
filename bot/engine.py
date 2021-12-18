@@ -57,7 +57,6 @@ class Bot(object):
     message_handlers = [
         (Filters.all, messages.to_db)
 
-
     ]
 
     def __init__(self):
@@ -69,7 +68,7 @@ class Bot(object):
 
         # Notify admins
         for user in models.BotUser.objects.filter(is_admin=True):
-            self.bot.send_message(chat_id=user.chat_id, text='🤖 Bot is running')
+            self.bot.send_message(chat_id=user.chat_id, text='🤖 Bot up!')
 
         dp = self.updater.dispatcher
         dp.add_error_handler(self.error_handler)
@@ -122,8 +121,8 @@ class Bot(object):
 
     def start(self):
 
-            self.updater.start_polling()
+        self.updater.start_polling(timeout=15, read_latency=4)
 
-            print('[BOT] Running at https://t.me/{}'.format(self.bot.username))
+        print('[BOT] Running at https://t.me/{}'.format(self.bot.username))
 
-            self.updater.idle()
+        self.updater.idle()

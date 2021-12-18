@@ -16,12 +16,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from core import views
+from django.views.decorators.csrf import csrf_exempt
 import debug_toolbar
+from core.views import WebhookView
+from django.conf import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+
+    path('webhook/', csrf_exempt(WebhookView.as_view())),
     path('__debug__/', include(debug_toolbar.urls))
 ]

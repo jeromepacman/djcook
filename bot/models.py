@@ -8,19 +8,16 @@ class BotUser(TimeStampedModel):
     """
     The bot user
     """
-
     # Basic data
     chat_id = models.BigIntegerField()
     username = models.CharField(max_length=64, null=True, blank=True)
     first_name = models.CharField(max_length=64, null=True, blank=True)
     last_name = models.CharField(max_length=64, null=True, blank=True)
     joined = models.DateField(default=date.today)
-    language_code = models.CharField(max_length=8, null=True, blank=True)
+    language_code = models.CharField("Lang", max_length=8, null=True, blank=True)
 
     # Permissions
-
     is_admin = models.BooleanField(default=False)
-
     # State
     is_blocked_bot = models.BooleanField(default=False)
 
@@ -43,3 +40,15 @@ class BotUser(TimeStampedModel):
 
     def report_last_action(self):
         self.last_action_datetime = now()
+
+
+class Events(TimeStampedModel):
+    date = models.DateTimeField()
+    title = models.CharField(max_length=128)
+    body = models.TextField()
+
+    def __str__(self):
+        return str(self.date) + " | " + str(self.title)
+
+    class Meta:
+        ordering = ["date"]
